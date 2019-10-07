@@ -30,17 +30,13 @@ export class HomePage {
             let nombre = img[img.length - 1];
             let tempPath = tempImage.substr(0, tempImage.lastIndexOf('/') + 1);
             let pathExternal = this.file.externalApplicationStorageDirectory;
-            console.log(pathExternal);
-            console.log(pathExternal + nombre);
             try {
                 await this.file.moveFile(tempPath, nombre, pathExternal, nombre);
-                this.imagen = this.webview.convertFileSrc(pathExternal + nombre) //pathExternal + nombre;
+                this.imagen = this.webview.convertFileSrc(pathExternal + nombre);
             } catch (e) {
-                console.log('Error ESCRITURA MMMM');
                 console.log(e);
             }
         } catch (e) {
-            console.log('ERRRROR R de camara ');
             console.log(e);
         }
     }
